@@ -51,6 +51,13 @@ function isRateLimited(key: string): boolean {
 
 let cachedTransporter: Transporter | null = null;
 
+/** Names the variables the host is missing, so logs point straight at the gap. */
+function missingSmtpVars(): string[] {
+  return (["SMTP_HOST", "SMTP_USER", "SMTP_PASSWORD"] as const).filter(
+    (name) => !process.env[name],
+  );
+}
+
 function getTransporter(): Transporter | null {
   if (cachedTransporter) return cachedTransporter;
 
@@ -98,7 +105,9 @@ export async function POST(request: Request) {
 
   if (!transporter) {
     console.error(
-      "[Volvex Designs] SMTP is not configured — set SMTP_HOST, SMTP_USER and SMTP_PASSWORD.",
+      `[Volvex Designs] SMTP is not configured — missing ${missingSmtpVars().join(
+        ", ",
+      )}. Set these in your host's environment variables, then redeploy.`,
     );
     return NextResponse.json(
       { error: "Email is not configured on the server." },

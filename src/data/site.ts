@@ -1,7 +1,10 @@
 import type { NavItem } from "@/lib/types";
 
-/** Update once the production domain is live — used for canonical + OG URLs. */
-export const SITE_URL = "https://volvex.ai";
+/**
+ * Used for canonical + OG URLs. Point this at the live domain — note that
+ * volvex.ai belongs to an unrelated company (Volvex AI Oy), not to us.
+ */
+export const SITE_URL = "https://volvexdesigns.vercel.app";
 
 export const SITE_NAME = "Volvex Designs";
 
