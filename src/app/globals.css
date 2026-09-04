@@ -1,26 +1,158 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* ------------------------------------------------------------------
+   Volvex Designs design tokens
+   Palette derived from the official Volvex Designs logo & brand sheet.
+   ------------------------------------------------------------------ */
+@theme {
+  --font-sans: var(--font-poppins), ui-sans-serif, system-ui, -apple-system,
+    "Segoe UI", Roboto, sans-serif;
+
+  /* Brand — turquoise / cyan */
+  --color-brand: #00b5b6;
+  --color-brand-deep: #00998f;
+  --color-brand-light: #8fe8e6;
+  --color-brand-pale: #cff7f6;
+  --color-brand-mist: #f1fbfb;
+
+  /* Neutrals */
+  --color-ink: #0b1215;
+  --color-ink-2: #1e2b2e;
+  --color-muted: #5c6a6d;
+  --color-muted-2: #8c9799;
+  --color-line: #e8eded;
+  --color-line-2: #f1f5f5;
+  --color-surface: #f7fafa;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+@layer base {
+  /* Tailwind v4 defaults `border-color` to currentColor — restore a token default. */
+  *,
+  ::after,
+  ::before {
+    border-color: var(--color-line);
+  }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  html {
+    -webkit-text-size-adjust: 100%;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    background-color: #ffffff;
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Sticky-header offset for in-page anchors */
+  :target,
+  [id] {
+    scroll-margin-top: 6rem;
+  }
+
+  ::selection {
+    background-color: var(--color-brand-pale);
+    color: var(--color-brand-deep);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-brand);
+    outline-offset: 3px;
+    border-radius: 6px;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    text-wrap: balance;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    html {
+      scroll-behavior: smooth;
+    }
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@layer components {
+  /* Fluid editorial type scale ------------------------------------- */
+  .type-display {
+    font-size: clamp(2.375rem, 1.2rem + 5.2vw, 4rem);
+    line-height: 1.03;
+    letter-spacing: -0.035em;
+    font-weight: 600;
+  }
+
+  .type-h2 {
+    font-size: clamp(2rem, 1.15rem + 3.1vw, 3.5rem);
+    line-height: 1.08;
+    letter-spacing: -0.03em;
+    font-weight: 600;
+  }
+
+  .type-h3 {
+    font-size: clamp(1.3rem, 1.08rem + 0.75vw, 1.6rem);
+    line-height: 1.25;
+    letter-spacing: -0.02em;
+    font-weight: 600;
+  }
+
+  .type-lead {
+    font-size: clamp(1.0625rem, 1rem + 0.25vw, 1.1875rem);
+    line-height: 1.65;
+  }
+
+  .type-eyebrow {
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+  }
+}
+
+@layer utilities {
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Fine technical grid used behind hero / CTA compositions */
+  .bg-grid {
+    background-image:
+      linear-gradient(to right, rgba(0, 181, 182, 0.07) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(0, 181, 182, 0.07) 1px, transparent 1px);
+    background-size: 56px 56px;
+  }
+
+  .bg-grid-fine {
+    background-image:
+      linear-gradient(to right, rgba(0, 181, 182, 0.055) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(0, 181, 182, 0.055) 1px, transparent 1px);
+    background-size: 28px 28px;
+  }
+
+  .mask-fade-edges {
+    -webkit-mask-image: radial-gradient(ellipse 70% 70% at 50% 50%, #000 40%, transparent 100%);
+    mask-image: radial-gradient(ellipse 70% 70% at 50% 50%, #000 40%, transparent 100%);
+  }
+}
+
+/* Honour the OS-level reduced-motion preference site-wide. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  ::before,
+  ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
