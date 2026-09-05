@@ -1,6 +1,7 @@
 import {
   BarChart3,
   BrainCircuit,
+  Bug,
   ClipboardList,
   Compass,
   Gauge,
@@ -188,6 +189,14 @@ export const TEAM: TeamMember[] = [
     role: "Project Manager",
     icon: ClipboardList,
     photo: "/images/team/anirudh%20kp.jpeg",
+    isPlaceholder: false,
+  },
+  {
+    id: "qa-tester",
+    name: "Rameesa Ramzan",
+    role: "QA & Tester",
+    icon: Bug,
+    photo: "/images/team/rameesa.jpeg",
     isPlaceholder: false,
   },
 ];
