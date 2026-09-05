@@ -23,7 +23,7 @@ function PortraitPlaceholder({ member }: { member: TeamMember }) {
       <p className="text-[0.6875rem] leading-relaxed text-muted-2">
         Add a photo at
         <br />
-        <span className="text-brand-deep">/images/team/{member.id}.jpg</span>
+        <span className="text-brand-deep">/images/team/{member.id}.jpeg</span>
       </p>
     </div>
   );

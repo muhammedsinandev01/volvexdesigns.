@@ -137,17 +137,17 @@ export const TEAM: TeamMember[] = [
   {
     id: "founder-1",
     name: "Ashfaque Thuyyadi",
-    role: "Co-Founder",
+    role: "Co-Founder / Software Engineer",
     icon: Compass,
-    photo: null,
+    photo: "/images/team/founder-1.jpeg",
     isPlaceholder: false,
   },
   {
     id: "founder-2",
     name: "Muhammed Sinan",
-    role: "Co-Founder",
+    role: "Co-Founder / Software Engineer",
     icon: Rocket,
-    photo: null,
+    photo: "/images/team/founder-2.jpeg",
     isPlaceholder: false,
   },
   {
@@ -155,7 +155,7 @@ export const TEAM: TeamMember[] = [
     name: "Abdul Kader",
     role: "Data Analyst",
     icon: BarChart3,
-    photo: null,
+    photo: "/images/team/data-analyst.jpeg",
     isPlaceholder: false,
   },
   {
@@ -163,7 +163,7 @@ export const TEAM: TeamMember[] = [
     name: "Raees Kasim",
     role: "AI & ML Engineer",
     icon: BrainCircuit,
-    photo: null,
+    photo: "/images/team/ml-engineer.jpeg",
     isPlaceholder: false,
   },
   {
@@ -171,7 +171,7 @@ export const TEAM: TeamMember[] = [
     name: "Fathima Sharin",
     role: "WordPress Developer",
     icon: LayoutTemplate,
-    photo: null,
+    photo: "/images/team/fathima%20sharin.jpeg",
     isPlaceholder: false,
   },
   {
@@ -179,7 +179,7 @@ export const TEAM: TeamMember[] = [
     name: "Shaziya",
     role: "Digital Strategist & SEO Specialist",
     icon: Search,
-    photo: null,
+    photo: "/images/team/shaziya.jpeg",
     isPlaceholder: false,
   },
   {
@@ -187,7 +187,7 @@ export const TEAM: TeamMember[] = [
     name: "Anirudh KP",
     role: "Project Manager",
     icon: ClipboardList,
-    photo: null,
+    photo: "/images/team/anirudh%20kp.jpeg",
     isPlaceholder: false,
   },
 ];

@@ -68,7 +68,7 @@ export interface TeamMember {
   icon: LucideIcon;
   /**
    * Drop a headshot into `public/images/team/` and set the path here
-   * (e.g. "/images/team/founder-1.jpg"). While this is `null` the card
+   * (e.g. "/images/team/founder-1.jpeg"). While this is `null` the card
    * renders a portrait placeholder instead.
    */
   photo: string | null;
